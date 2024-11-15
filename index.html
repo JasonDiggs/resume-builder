@@ -2,5 +2,23 @@
     <body>
         <h1>Hello world!</h1>
         <p>Testing to see if this works.</p>
+        <hr>
+        <script>
+            function updateLocalStorage() {
+                var newName = document.getElementById("name").value;
+                localStorage.resumeData = JSON.stringify({
+                    name: newName
+                });
+            }
+        </script>
+        <input name="name" id="name" type="text" placeholder="Enter name" />
+        <button onclick="updateLocalStorage()">Save to localStorage</button>
+        <script>
+            var dataStr = localStorage.resumeData;
+            if (dataStr) {
+                let data = JSON.parse(dataStr);
+                document.getElementById("name").value = data.name ?? "";
+            }
+        </script>
     </body>
 </html>
