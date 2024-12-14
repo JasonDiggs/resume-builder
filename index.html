@@ -1,8 +1,5 @@
 <html>
-    <body>
-        <h1>Hello world!</h1>
-        <p>Testing to see if this works.</p>
-        <hr>
+    <head>
         <script>
             function updateLocalStorage() {
                 var newName = document.getElementById("name").value;
@@ -11,14 +8,82 @@
                 });
             }
         </script>
-        <input name="name" id="name" type="text" placeholder="Enter name" />
-        <button onclick="updateLocalStorage()">Save to localStorage</button>
-        <script>
-            var dataStr = localStorage.resumeData;
-            if (dataStr) {
-                let data = JSON.parse(dataStr);
-                document.getElementById("name").value = data.name ?? "";
+        <style>
+            body {
+                padding: 0px;
+                margin: 0px;
+                background-color: #232323;
             }
-        </script>
+            header {
+                background-color: #151515;
+                padding: 30px 50px;
+                color: #fff;
+                font-family: Avenir;
+            }
+            header p {
+                margin: 0px;
+            }
+            main {
+                padding: 30px 50px;
+                background-color: #232323;
+                color: #fff;
+                font-family: Avenir;
+            }
+            .card {
+                padding: 25px;
+                border: 0px solid black;
+                border-radius: 10px;
+                background-color: rgba(0, 0, 0, 0.2);
+            }
+            .two-column {
+                display: grid;
+            }
+            label {
+                font-weight: 500;
+            }
+            input {
+                background-color: #000;
+                padding: 10px;
+                border: 1px solid black;
+                border-radius: 5px;
+                margin: 10px 0px;
+                color: #fff;
+                font-size: 0.9rem;
+                font-weight: 100;
+            }
+            input[type="submit"] {
+                background-color: cyan;
+                color: #000;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            <p style="font-size: 1.5rem;">resume<span style="color: cyan; font-weight: 600;">builder</span></p>
+        </header>
+        <main>
+            <h1>
+                Getting started
+            </h1>
+            <p>Let's get some basic information.</p>
+            <h2>Contact information</h2>
+            <form class="card two-column">
+                <label>First name</label>
+                <input>
+                <label>Last name</label>
+                <input>
+                <label>Email</label>
+                <input>
+                <input type="submit" value="Next →"></input>
+            </form>
+            <script>
+                var dataStr = localStorage.resumeData;
+                if (dataStr) {
+                    let data = JSON.parse(dataStr);
+                    document.getElementById("name").value = data.name ?? "";
+                }
+            </script>
+        </main>
     </body>
 </html>
